@@ -1,32 +1,45 @@
 import { useState } from 'react'
-import reactLogo from './../assets/react.svg'
+import Hero from "../components/hero";
+import Navbar from '../components/navbar';
+import SectionTitle from "../components/sectionTitle";
 import './Home.css'
+import Benefits from "../components/benefits";
+import { benefitOne, benefitTwo } from "../components/data";
 
 export default function Home() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Home</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+    <Navbar />
+    <Hero />
+    <SectionTitle
+      pretitle="Nextly Benefits"
+      title=" Why should you use this landing page">
+      Nextly is a free landing page & marketing website template for startups
+      and indie projects. Its built with Next.js & TailwindCSS. And its
+      completely open-source.
+    </SectionTitle>
+    <Benefits data={benefitOne} />
+    <Benefits imgPos="right" data={benefitTwo} />
+   {/*
+    <SectionTitle
+      pretitle="Watch a video"
+      title="Learn how to fullfil your needs">
+      This section is to highlight a promo or demo video of your product.
+      Analysts says a landing page with video has 3% more conversion rate. So,
+      don't forget to add one. Just like this.
+    </SectionTitle>
+    <SectionTitle
+      pretitle="Testimonials"
+      title="Here's what our customers said">
+      Testimonails is a great way to increase the brand trust and awareness.
+      Use this section to highlight your popular customers.
+    </SectionTitle>
+    <SectionTitle pretitle="FAQ" title="Frequently Asked Questions">
+      Answer your customers possible questions here, it will increase the
+      conversion rate as well as support or chat requests.
+    </SectionTitle> */}
+  </>
   )
 }
