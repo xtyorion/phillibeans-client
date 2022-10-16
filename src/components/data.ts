@@ -1,14 +1,5 @@
-// import {
-//   EmojiHappyIcon,
-//   ChartSquareBarIcon,
-//   CursorClickIcon,
-//   DeviceMobileIcon,
-//   AdjustmentsIcon,
-//   SunIcon,
-// } from "@heroicons/react/outline";
-
-import benefitOneImg from "../public/img/benefit-one.png";
-import benefitTwoImg from "../public/img/benefit-two.png";
+import benefitOneImg from "../assets/img/benefit-one.png";
+import benefitTwoImg from "../assets/img/benefit-two.png";
 
 const benefitOne = {
   title: "Highlight your benefits",

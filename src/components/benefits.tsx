@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./container";
 
-export default function Benefits(props: {imgPos?: string, data: {image: string, title: string, desc: string, bullets: {title: string, icon: string, desc: string}[]}}) {
+export default function Benefits(props: {imgPos?: string, data: {image: string, title: string, desc: string, bullets: {title: string, icon?: string, desc: string}[]}}) {
   const { data } = props;
 
   return (
@@ -28,11 +28,11 @@ export default function Benefits(props: {imgPos?: string, data: {image: string, 
           }`}>
           <div>
             <div className="flex flex-col w-full mt-4">
-              <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
+              <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight dark:text-light-headline text-dark-headline lg:leading-tight lg:text-4xl">
                 {data.title}
               </h3>
 
-              <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300">
+              <p className="max-w-2xl py-4 text-lg leading-normal dark:text-light-headline text-dark-headline lg:text-xl xl:text-xl">
                 {data.desc}
               </p>
             </div>
@@ -51,7 +51,7 @@ export default function Benefits(props: {imgPos?: string, data: {image: string, 
   );
 }
 
-function Benefit(props: {title: string, icon: string, desc?: string, children: React.ReactNode}) {
+function Benefit(props: {title: string, icon?: string, desc?: string, children: React.ReactNode}) {
   return (
     <>
       <div className="flex items-start mt-8 space-x-3">
@@ -59,10 +59,10 @@ function Benefit(props: {title: string, icon: string, desc?: string, children: R
          
         </div>
         <div>
-          <h4 className="text-xl font-medium text-gray-800 dark:text-gray-200">
+          <h4 className="text-xl font-medium dark:text-light-headline text-dark-headline">
             {props.title}
           </h4>
-          <p className="mt-1 text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-gray-500 dark:text-light-headline text-paragraph">
             {props.children}
           </p>
         </div>
