@@ -45,7 +45,7 @@ export default function Navbar() {
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
           {isLog() && 
-            <Link to="/login" className="px-6 py-2 text-light-headline bg-dark-headline dark:text-dark-headline dark:bg-light-headline rounded-md md:ml-5">
+            <Link to="/login" className="px-6 py-2  bg-primary text-dark-headline rounded-md md:ml-5">
               Sign in
             </Link>
           }
