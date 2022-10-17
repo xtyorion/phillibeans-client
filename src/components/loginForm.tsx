@@ -61,7 +61,8 @@ export default function LoginForm () {
 
           <div className="mt-10">
             <form action="#">
-              {/* <div className="flex flex-col mb-5">
+              { form.title ==="Sign up" &&
+               <div className="flex flex-col mb-5">
                 <label
                   htmlFor="email"
                   className="mb-1 text-xs tracking-wide text-gray-600"
@@ -103,7 +104,7 @@ export default function LoginForm () {
                     placeholder="Enter your name"
                   />
                 </div>
-              </div> */}
+              </div> }
               <div className="flex flex-col mb-5">
                 <label
                   htmlFor="email"
