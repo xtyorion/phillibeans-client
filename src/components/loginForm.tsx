@@ -1,6 +1,7 @@
 import Container from "./container";
 import { Link, useLocation } from "react-router-dom";
 import {useState, useEffect} from 'react';
+import {Login} from '../login/LoginService';
 
 export default function LoginForm () {
   const location = useLocation();
@@ -214,11 +215,12 @@ export default function LoginForm () {
                     duration-150
                     ease-in
                   "
+                  onClick={Login}
                 >
                   <span className="mr-2 uppercase text-dark-headline">{form.title}</span>
                   <span>
                     <svg
-                      className="h-6 w-6 text-dark-headline"
+                      className="h-6 w-6 text-primary"
                       fill="none"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -239,7 +241,7 @@ export default function LoginForm () {
             <span className="ml-2">{form.nextHeader}
             <Link
               to={form.nextLink}
-              className="text-md ml-2 text-dark-headline font-semibold"
+              className="text-md ml-2 text-primary font-semibold"
               >{form.nextBtn}
               </Link>
             </span>

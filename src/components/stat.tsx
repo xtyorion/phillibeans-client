@@ -4,7 +4,7 @@ import Container from "./container";
 export default function Stat(props : {}) {
   return (
     <Container >
-      <div className="dark:bg-light-background border-2 text-dark-headline border-dark-background py-3 px-3 rounded-md w-64 my-4 shadow-xl">
+      <div className="dark:bg-light-background mx-auto border-2 text-dark-headline border-dark-background py-3 px-3 rounded-md w-64 my-4 shadow-xl">
       <div>
           <p className="text-2xl font-semibold my-2">Easy</p>
           <div className="border-t-2"></div>
