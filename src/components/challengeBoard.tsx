@@ -35,6 +35,7 @@ export default function ChallengeBoard(props: {}) {
             children={data.answer}
             Index={Index}
             setIndex={setIndex}
+            key={data.id}
           ></Challenge>
         );
       })}

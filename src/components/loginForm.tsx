@@ -1,16 +1,24 @@
 import Container from "./container";
 import { Link, useLocation } from "react-router-dom";
 import {useState, useEffect} from 'react';
-import {Login} from '../login/LoginService';
+import { useAppDispatch,useAppSelector } from "../hooks/redux-hooks";
+import {loginAuth} from '../store/actions/auth.actions';
+import { useStore } from 'react-redux';
+import { useNavigate  } from "react-router-dom";
 
 export default function LoginForm () {
+  const navigate = useNavigate();
+  const dispatch=useAppDispatch();
   const location = useLocation();
+  const [auth, setAuth]=useState({Email: "vincent@gmail.com", Password: "vincent"});
+  const currentAuth=useAppSelector(state=>state.auth);
   const [form, setForm] = useState({
     title: "",
     nextHeader: "", 
     nextBtn:"",
     nextLink: ""
   });
+  const store = useStore()
 
   const routerChanged = (path: string) => {
     switch(path){
@@ -31,9 +39,28 @@ export default function LoginForm () {
     }
   }
 
+  const clickLogin=()=>{
+    dispatch(loginAuth(auth))
+    
+  }
+  const checkAuth=():boolean=>{
+    if(currentAuth.Id === ""){
+        return false
+    }
+    return true
+  }
+
   useEffect(()=>{
     routerChanged(location.pathname);
   },[location.pathname])
+
+  useEffect(()=>{
+    
+    if(checkAuth())
+    {
+      navigate("/dashboard");
+    }
+  },[currentAuth])
 
   return (
     <>
@@ -215,7 +242,7 @@ export default function LoginForm () {
                     duration-150
                     ease-in
                   "
-                  onClick={Login}
+                  onClick={clickLogin}
                 >
                   <span className="mr-2 uppercase text-dark-headline">{form.title}</span>
                   <span>
