@@ -1,7 +1,5 @@
 import { IAuthLogin, IAuth } from '../interfaces/auth.interface';
 import Api from '../Api';
-import axios from 'axios';
-
 export default {
   // async login (auth: IAuthLogin) {
     

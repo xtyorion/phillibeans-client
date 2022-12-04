@@ -1,42 +1,24 @@
 import { useState } from "react";
 import Container from "./container";
-import Challenge from "./challenge";
+import Category from "./category";
+import { ICategory } from "../store/interfaces/category.interface";
 
-export default function ChallengeBoard(props: {}) {
-  const [Index, setIndex] = useState(0);
+export default function ChallengeBoard(props: {categories: ICategory[]}) {
+  const [Index, setIndex] = useState("");
 
-  const data = [
-    {
-      id: 1,
-      question: "Array & Hashing",
-      answer: "The React Framework for Production",
-    },
-    {
-      id: 2,
-      question: "Two Pointers",
-      answer:
-        "A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.",
-    },
-    {
-      id: 3,
-      question: "Sliding Window",
-      answer:
-        " a visual object or experience consciously created through an expression of skill or imagination.",
-    },
-  ];
   return (
     <Container>
      
-       {data.map((data) => {
+       {props.categories && props.categories.map((data) => {
         return (
-          <Challenge
-            title={data.question}
-            Id={data.id}
-            children={data.answer}
+          <Category
+            title={data.Name}
+            Id={data.Id}
+            children={data.Challenges}
             Index={Index}
             setIndex={setIndex}
-            key={data.id}
-          ></Challenge>
+            key={data.Id}
+          ></Category>
         );
       })}
     </Container>

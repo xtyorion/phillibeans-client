@@ -1,4 +1,7 @@
 export interface IChallenge{
-  "Id": number,
+  "Id": string,
+  "TypeID": string,
+  "SolutionID": string,
+  "CategoryID": string,
   "Name": string,
 }

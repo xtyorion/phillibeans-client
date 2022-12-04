@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Container from "./container";
 
-export default function Video() {
+export default function Video(props : {data: string}) {
   const [playVideo, setPlayVideo] = useState(false);
   return (
     <Container>
-      <div className="w-full max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl ">
+      <div className="w-full max-w-4xl mx-auto rounded-2xl ">
         <div
           onClick={() => setPlayVideo(!playVideo)}
           className="relative bg-indigo-300 cursor-pointer aspect-w-16 aspect-h-9 bg-gradient-to-tr from-purple-400 to-indigo-700">
@@ -27,11 +27,11 @@ export default function Video() {
           )}
           {playVideo && (
             <iframe
-              src="https://www.youtube-nocookie.com/embed/aOq49euWnIo?controls=0&autoplay=1"
+              src={props.data}
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
+              allowFullScreen></iframe>
           )}
         </div>
       </div>
