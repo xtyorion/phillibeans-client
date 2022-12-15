@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks/redux-hooks";
+import { SetTheme } from "../store/actions/setting.actions";
 
 const ThemeChanger = () => {
+  const currentSetting = useAppSelector((state) => state.setting);
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState('');
+  const [currenttheme, setCurrenttheme] = useState('');
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
+    // if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    //   setCurrenttheme('dark');
+    // } else {
+    //   setCurrenttheme('light');
+    // }
+    setCurrenttheme(currentSetting.theme)
   },[]);
 
   useEffect(() => {
-		if (theme === 'dark'){
+		if (currenttheme === 'dark'){
       document.documentElement.classList.add('dark');
       document.body.style.backgroundColor = "#00473e";
     } else {
@@ -21,11 +26,13 @@ const ThemeChanger = () => {
       document.body.style.backgroundColor = "#f2f7f5";
 
     }
-	}, [theme]);
+    dispatch(SetTheme(currenttheme));
+    console.log(currentSetting);
+	}, [currenttheme]);
 
   const handleThemeSwitch = () => {
-		setTheme(theme === 'dark' ? 'light' : 'dark');
-	};
+    setCurrenttheme(currenttheme === "dark" ? "light" : "dark");
+  };
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);
@@ -34,7 +41,7 @@ const ThemeChanger = () => {
 
   return (
     <div className="flex items-center">
-      {theme === 'dark' ? (
+      {currenttheme === 'dark' ? (
         <button
           onClick={handleThemeSwitch}
           className="text-gray-300 rounded-full outline-none focus:outline-none">

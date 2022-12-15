@@ -12,7 +12,6 @@ export default {
     var response = await Api().post('UserChallenge/UpdateUserChallenge', payload, {
       headers: {"Content-Type": "application/json"}
     });
-    console.log(response.data);
     return response.data;
   },
 }

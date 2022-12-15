@@ -3,7 +3,7 @@ import Video from "./video";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-export default function PopupWidget(props: {data: string, icon: JSX.Element, type: string}) {
+export default function PopupWidget(props: {data: string, icon: JSX.Element, type: string, name: string}) {
   const codeString = `function createStyleObject(classNames, style) {
     return classNames.reduce((styleObject, className) =&gt; {
       return {...styleObject, ...style[className]};
@@ -59,7 +59,8 @@ export default function PopupWidget(props: {data: string, icon: JSX.Element, typ
                 enterFrom="opacity-0 -rotate-45 scale-75"
                 leave="transition duration-100 transform ease"
                 leaveTo="opacity-0 -rotate-45"
-                className="absolute w-6 h-6 text-white">
+                className="absolute w-6 h-6 text-white"
+              >
                 {props.icon}
               </Transition>
 
@@ -69,7 +70,8 @@ export default function PopupWidget(props: {data: string, icon: JSX.Element, typ
                 enterFrom="opacity-0 rotate-45 scale-75"
                 leave="transition duration-100 transform ease"
                 leaveTo="opacity-0 rotate-45"
-                className="absolute w-6 h-6 text-white">
+                className="absolute w-6 h-6 text-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-6 h-6"
@@ -80,31 +82,57 @@ export default function PopupWidget(props: {data: string, icon: JSX.Element, typ
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
-                  strokeLinejoin="round">
+                  strokeLinejoin="round"
+                >
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>{" "}
               </Transition>
             </Disclosure.Button>
             <Transition
-              className="fixed z-50 bottom-[70px] top-0 right-0  left-0 sm:top-auto sm:right-5 sm:left-auto"
+              className="fixed z-50 top-1/4 left-1/4 w-1/2 h-1/2"
               enter="transition duration-200 transform ease"
               enterFrom="opacity-0 translate-y-5"
               leave="transition duration-200 transform ease"
-              leaveTo="opacity-0 translate-y-5">
-              <Disclosure.Panel className=" flex flex-col text-light-headline overflow-hidden left-0 h-full w-full
-               sm:w-[350px] min-h-[250px] sm:h-[600px] border border-gray-300 dark:border-gray-800 bg-dark-background shadow-2xl rounded-md sm:max-h-[calc(100vh-120px)]">
-                <div className="flex flex-col items-center justify-center h-full p-5">
-                  <h3 className="text-lg">How can we help?</h3>
-                  <p>
-                    We usually respond in a few hours
-                  </p>
-                  <div className="mt-12">
+              leaveTo="opacity-0 translate-y-5"
+            >
+              <Disclosure.Panel
+                className=" flex flex-col text-light-headline overflow-hidden left-0 h-full w-full
+               border border-gray-300 dark:border-gray-800 bg-dark-background shadow-2xl rounded-md"
+              >
+                <Disclosure.Button>
+                  <Transition
+                    show={open}
+                    enter="transition duration-200 transform ease"
+                    enterFrom="opacity-0 rotate-45 scale-75"
+                    leave="transition duration-100 transform ease"
+                    leaveTo="opacity-0 rotate-45"
+                    className="absolute right-2 top-2 w-6 h-6 text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>{" "}
+                  </Transition>
+                </Disclosure.Button>
+                <div className="flex flex-col items-center justify-center w-full h-full">
+                  <h3 className="text-xl font-bold">{props.name}</h3>
+                  <p>Solution video</p>
+                  <div className="">
                     <Video data={props.data} />
-                   
                   </div>
                 </div>
-               
               </Disclosure.Panel>
             </Transition>
           </>

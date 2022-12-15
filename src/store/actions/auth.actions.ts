@@ -13,3 +13,17 @@ export const loginAuth=(auth: IAuthLogin):ThunkAction<void,RootState,unknown,Any
     dispatch(authActions.setState(response))  
   }
 }
+
+export const logoutAuth = (): ThunkAction<void, RootState, unknown, AnyAction> => {
+  return async (dispatch, getState) => {
+    dispatch(
+      authActions.setState({
+        Id: "",
+        Email: "",
+        Name: "",
+        ImageURL: "",
+        Challenges: [],
+      })
+    );
+  };
+};

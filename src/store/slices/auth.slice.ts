@@ -6,16 +6,16 @@ const initialAuthState = {
   "Email": "",
   "Name": "",
   "ImageURL": "",
-  "Challenges": []
+  "Challenges": [],
 } as IAuth
 
-const authSlice=createSlice({
-    name:'auth',
-    initialState:initialAuthState,
-    reducers:{
-      setState(state, action:PayloadAction<IAuth>){
-        return action.payload
-      },
-    }
-})
+const authSlice = createSlice({
+  name: "auth",
+  initialState: initialAuthState,
+  reducers: {
+    setState(state, action: PayloadAction<IAuth>) {
+      return action.payload;
+    },
+  },
+});
 export default authSlice;

@@ -14,7 +14,6 @@ const currentUser = useAppSelector(state => state.auth);
 const dispatch=useAppDispatch();
 
 const setChallengeStatus = (status: boolean) => {
-  console.log("props", props.data)
   var userChallenge: IUserChallenge = {
     Status: status,
     Challenge_Id: props.data.Id,
@@ -59,7 +58,7 @@ return (
       </span>
     </td>
     <td className="py-1 px-6 text-center ">
-      <PopupWidget data="https://www.youtube.com/embed/1MdKNayVd7g" icon={<FaPhotoVideo size={25}/>} type="video"/>
+      <PopupWidget data="https://www.youtube.com/embed/1MdKNayVd7g" name={props.data.Name} icon={<FaPhotoVideo size={25}/>} type="video"/>
     </td>
     <td className="py-3 px-6 text-center">
     <FaCode size={25} className="mx-auto"/>
